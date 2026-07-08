@@ -13,9 +13,7 @@ def start(message):
         message.chat.id,
         "Salom 🎵 Men musiqa qidiruvchi botman.\nQo‘shiq nomini yozing."
     )
-
 @bot.message_handler(func=lambda message: True)
-def s@bot.message_handler(func=lambda message: True)
 def search_music(message):
     song = message.text
     search = quote(song)
