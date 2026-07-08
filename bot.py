@@ -9,10 +9,13 @@ bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(
-        message.chat.id,
-        "Salom 🎵 Men musiqa qidiruvchi botman.\nQo‘shiq nomini yozing."
-    )
+    text = """
+🌙 Assalomu alaykum, Farangiz apa! 🤍
+
+Men Luna botman.
+Sizga yordam berishga doim tayyorman. ✨
+"""
+    bot.send_message(message.chat.id, text)
 @bot.message_handler(func=lambda message: True)
 def search_music(message):
     song = message.text
