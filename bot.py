@@ -15,15 +15,24 @@ def start(message):
     )
 
 @bot.message_handler(func=lambda message: True)
+def s@bot.message_handler(func=lambda message: True)
 def search_music(message):
     song = message.text
     search = quote(song)
 
     youtube = f"https://www.youtube.com/results?search_query={search}"
 
+    markup = telebot.types.InlineKeyboardMarkup()
+    button = telebot.types.InlineKeyboardButton(
+        "🎧 YouTube ochish",
+        url=youtube
+    )
+    markup.add(button)
+
     bot.send_message(
         message.chat.id,
-        f"🎧 Qidiruv:\n{song}\n\nTopish uchun:\n{youtube}"
+        f"🎵 Qo‘shiq qidiruvi\n\n"
+        f"🎶 Nomi: {song}\n\n"
+        f"Pastdagi tugmani bosib tinglashingiz mumkin 👇",
+        reply_markup=markup
     )
-
-bot.infinity_polling()
