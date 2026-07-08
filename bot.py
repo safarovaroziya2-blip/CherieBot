@@ -1,4 +1,5 @@
 
+
 import telebot
 from urllib.parse import quote
 
@@ -10,20 +11,19 @@ bot = telebot.TeleBot(TOKEN)
 def start(message):
     bot.send_message(
         message.chat.id,
-        "Salom 😊 Qo‘shiq nomini yozing, men qidirib beraman 🎵"
+        "Salom 🎵 Men musiqa qidiruvchi botman.\nQo‘shiq nomini yozing."
     )
 
 @bot.message_handler(func=lambda message: True)
-def search_song(message):
+def search_music(message):
     song = message.text
-    query = quote(song)
+    search = quote(song)
 
-    youtube_link = f"https://www.youtube.com/results?search_query={query}"
+    youtube = f"https://www.youtube.com/results?search_query={search}"
 
     bot.send_message(
         message.chat.id,
-        f"🎵 Siz qidirgan qo‘shiq:\n{song}\n\n🔎 YouTube qidiruvi:\n{youtube_link}"
+        f"🎧 Qidiruv:\n{song}\n\nTopish uchun:\n{youtube}"
     )
 
 bot.infinity_polling()
-
