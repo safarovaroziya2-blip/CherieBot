@@ -34,3 +34,4 @@ def search_music(message):
         f"Pastdagi tugmani bosib tinglashingiz mumkin 👇",
         reply_markup=markup
     )
+bot.infinity_polling()
